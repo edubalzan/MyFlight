@@ -25,6 +25,6 @@ public class App {
 		Voo v1a = new Voo(r1, horaLocal1, duracao);
 		Voo v1b = new Voo(r1);
 
-		System.out.println(Geo.calculaDistancia(g1, g2));
+		System.out.printf("A distância é de aproximadamente %f km", Geo.calculaDistancia(g1, g2));
 	}
 }
