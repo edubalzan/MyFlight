@@ -22,7 +22,9 @@ public class App {
 		Rota r1 = new Rota(cia1, orig1, dest1, aer1);
 		LocalDateTime horaLocal1 = LocalDateTime.of(2016, 8, 12, 12, 0);
 		Duration duracao = Duration.ofMinutes(120);
-		Voo v1a = new Voo(r1, horaLocal1, duracao);	
+		Voo v1a = new Voo(r1, horaLocal1, duracao);
 		Voo v1b = new Voo(r1);
+
+		System.out.println(Geo.calculaDistancia(g1, g2));
 	}
 }
