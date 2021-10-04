@@ -21,6 +21,10 @@ public class Voo {
 		this.status = Status.CONFIRMADO; // default é confirmado
 	}
 
+	public Voo(Rota rota) {
+		this.rota = rota;
+	}
+
 	public Rota getRota() {
 		return rota;
 	}
