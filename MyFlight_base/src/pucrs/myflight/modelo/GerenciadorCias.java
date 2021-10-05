@@ -22,4 +22,18 @@ public class GerenciadorCias {
 
 		return null;
 	}
+
+	public CiaAerea buscarPorNome(String nome) {
+		for (int i = 0; i < empresas.size(); i++) {
+			CiaAerea a = empresas.get(i);
+			if(a.getNome().equalsIgnoreCase(nome))
+				return a;
+		}
+
+		return null;
+	}
+
+	public ArrayList<CiaAerea> display() {
+		return empresas;
+	}
 }
