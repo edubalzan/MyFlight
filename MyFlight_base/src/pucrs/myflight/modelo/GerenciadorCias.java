@@ -1,12 +1,13 @@
 package pucrs.myflight.modelo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class GerenciadorCias {
 	private ArrayList<CiaAerea> empresas;
 	
 	public GerenciadorCias() {
-		empresas = new ArrayList<>();
+		empresas = new ArrayList<CiaAerea>();
 	}
 
 	public void adicionar(CiaAerea cia) {
@@ -35,5 +36,9 @@ public class GerenciadorCias {
 
 	public ArrayList<CiaAerea> display() {
 		return empresas;
+	}
+
+	public void ordenaNome() {
+		Collections.sort(empresas);
 	}
 }

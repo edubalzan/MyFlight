@@ -19,7 +19,7 @@ public class Aeronave implements Contavel{
 		return descricao;
 	}
 
-	public String toString() {
+	public String totalObjects() {
 		return "Total de objetos criados: " + totalObjects;
 	}
 }

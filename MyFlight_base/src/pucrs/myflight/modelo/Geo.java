@@ -1,12 +1,14 @@
 package pucrs.myflight.modelo;
 
-public class Geo {
+public class Geo implements Contavel {
 	private double latitude;
 	private double longitude;
 	private static double raio = 6371;
 	private static double distancia;
+	private int totalObjects = 0;
 	
 	public Geo(double latitude, double longitude) {
+		totalObjects += 1;
 		this.latitude = latitude;
 		this.longitude = longitude;
 	}
@@ -39,5 +41,9 @@ public class Geo {
 		)));
 
 		return distancia;
+	}
+
+	public String totalObjects() {
+		return "Total de objetos criados: " + totalObjects;
 	}
 }

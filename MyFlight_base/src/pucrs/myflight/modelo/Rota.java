@@ -1,10 +1,11 @@
 package pucrs.myflight.modelo;
 
-public class Rota {
+public class Rota implements Contavel {
 	private CiaAerea cia;
 	private Aeroporto origem;
 	private Aeroporto destino;
 	private Aeronave aeronave;
+	private int totalObjects = 0;
 
 	public Rota(CiaAerea cia, Aeroporto origem, Aeroporto destino, Aeronave aeronave) {
 		this.cia = cia;
@@ -27,5 +28,9 @@ public class Rota {
 
 	public Aeronave getAeronave() {
 		return aeronave;
+	}
+
+	public String totalObjects() {
+		return "Total de objetos criados: " + totalObjects;
 	}
 }

@@ -19,8 +19,8 @@ public class App {
 	public static void main(String[] args) {
 		//Gerenciadores
 		GerenciadorCias gcia = new GerenciadorCias();
-		GerenciadorAeronaves gaer = new GerenciadorAeronaves();
-		GerenciadorAeroportos gaev = new GerenciadorAeroportos();
+		GerenciadorAeronaves gaev = new GerenciadorAeronaves();
+		GerenciadorAeroportos gaer = new GerenciadorAeroportos();
 		GerenciadorRotas gr = new GerenciadorRotas();
 		GerenciadorVoos gv = new GerenciadorVoos();
 		
@@ -35,17 +35,18 @@ public class App {
 		LocalDateTime horaLocal1 = LocalDateTime.of(2016, 8, 12, 12, 0);
 		Duration duracao = Duration.ofMinutes(120);
 		Voo v1a = new Voo(r1, horaLocal1, duracao);
-		Voo v1b = new Voo(r1);
+		// Voo v1b = new Voo(r1);
 
 		//Adicionando aos gerenciadores
 		gcia.adicionar(cia1);
-		gaer.adicionar(aer1);
-		gaev.adicionar(orig1);
-		gaev.adicionar(dest1);
+		gaev.adicionar(aer1);
+		gaer.adicionar(orig1);
+		gaer.adicionar(dest1);
 		gr.adicionar(r1);
 		gv.adicionar(v1a);
 
 		//Prints
-		System.out.printf("A distância é de aproximadamente %f km", Geo.calculaDistancia(g1, g2));
+		System.out.printf("A distância é de aproximadamente %f km\n", Geo.calculaDistancia(g1, g2));
+		// System.out.println(gaer.display());
 	}
 }
