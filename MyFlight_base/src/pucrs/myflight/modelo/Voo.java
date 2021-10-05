@@ -9,10 +9,10 @@ public class Voo implements Contavel, Comparable<Voo> {
 		CONFIRMADO, ATRASADO, CANCELADO
 	};
 
-	private LocalDateTime datahora;
-	private Duration duracao;
-	private Rota rota;
-	private Status status;
+	public LocalDateTime datahora;
+	public Duration duracao;
+	public Rota rota;
+	public Status status;
 	private int totalObjects = 0;
 
 	public Voo(Rota rota, LocalDateTime datahora, Duration duracao) {
