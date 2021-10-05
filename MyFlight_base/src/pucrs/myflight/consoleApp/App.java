@@ -53,7 +53,8 @@ public class App {
 		gv.adicionar(ve1);
 
 		//Prints
-		System.out.printf("A distância é de aproximadamente %f km\n", Geo.calculaDistancia(g1, g2));
+		System.out.printf("A distância é de aproximadamente %.2f km\n", Geo.calculaDistancia(g1, g2));
 		// System.out.println(gaer.display());
+		System.out.printf("\nDuração do voo: %.2f minutos", Voo.calculaDuracao(v1a, g1, g2));
 	}
 }

@@ -54,4 +54,12 @@ public class Voo implements Contavel, Comparable<Voo> {
 	public int compareTo(Voo v) {
 		return datahora.compareTo(v.getDatahora());
 	}
+
+	public static double calculaDuracao(Voo v, Geo g1, Geo g2) {
+		double speed = 805;
+		double duracaoEmHoras = (Geo.calculaDistancia(g1, g2) / speed) + 0.5; //30 minutos a mais para decolagem e aterrissagem
+		double duracaoEmMinutos = duracaoEmHoras * 60;
+
+		return duracaoEmMinutos;
+	}
 }
