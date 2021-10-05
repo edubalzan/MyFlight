@@ -1,21 +1,22 @@
 package pucrs.myflight.modelo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class GerenciadorRotas {
-	private ArrayList<Rota> empresas;
+	private ArrayList<Rota> rotas;
 	
 	public GerenciadorRotas() {
-		empresas = new ArrayList<>();
+		rotas = new ArrayList<>();
 	}
 
 	public void adicionar(Rota r) {
-		empresas.add(r);
+		rotas.add(r);
 	}
 
 	public Rota buscarPorOrigem(Aeroporto orig) {
-		for (int i = 0; i < empresas.size(); i++) {
-			Rota a = empresas.get(i);
+		for (int i = 0; i < rotas.size(); i++) {
+			Rota a = rotas.get(i);
 			if(a.getOrigem().equals(orig))
 				return a;
 		}
@@ -24,8 +25,8 @@ public class GerenciadorRotas {
 	}
 
     public Rota buscarPorDestino(Aeroporto dest) {
-		for (int i = 0; i < empresas.size(); i++) {
-			Rota a = empresas.get(i);
+		for (int i = 0; i < rotas.size(); i++) {
+			Rota a = rotas.get(i);
 			if(a.getDestino().equals(dest))
 				return a;
 		}
@@ -34,6 +35,10 @@ public class GerenciadorRotas {
 	}
 
 	public ArrayList<Rota> display() {
-		return empresas;
+		return rotas;
+	}
+
+	public void ordenaOrigem() {
+		Collections.sort(rotas);
 	}
 }

@@ -2,21 +2,22 @@ package pucrs.myflight.modelo;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class GerenciadorVoos {
-	private ArrayList<Voo> empresas;
+	private ArrayList<Voo> voos;
 	
 	public GerenciadorVoos() {
-		empresas = new ArrayList<>();
+		voos = new ArrayList<>();
 	}
 
 	public void adicionar(Voo v) {
-		empresas.add(v);
+		voos.add(v);
 	}
 
 	public Voo buscarPorData(LocalDateTime datahora) {
-		for (int i = 0; i < empresas.size(); i++) {
-			Voo a = empresas.get(i);
+		for (int i = 0; i < voos.size(); i++) {
+			Voo a = voos.get(i);
 			if(a.getDatahora().equals(datahora))
 				return a;
 		}
@@ -25,6 +26,10 @@ public class GerenciadorVoos {
 	}
 
 	public ArrayList<Voo> display() {
-		return empresas;
+		return voos;
+	}
+
+	public void ordenaData() {
+		Collections.sort(voos);
 	}
 }

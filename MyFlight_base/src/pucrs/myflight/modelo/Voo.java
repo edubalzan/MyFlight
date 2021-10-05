@@ -3,7 +3,7 @@ package pucrs.myflight.modelo;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class Voo implements Contavel {
+public class Voo implements Contavel, Comparable<Voo> {
 
 	public enum Status {
 		CONFIRMADO, ATRASADO, CANCELADO
@@ -49,5 +49,9 @@ public class Voo implements Contavel {
 
 	public String totalObjects() {
 		return "Total de objetos criados: " + totalObjects;
+	}
+
+	public int compareTo(Voo v) {
+		return datahora.compareTo(v.getDatahora());
 	}
 }

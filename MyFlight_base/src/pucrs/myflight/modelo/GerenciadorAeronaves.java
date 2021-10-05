@@ -1,21 +1,22 @@
 package pucrs.myflight.modelo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class GerenciadorAeronaves {
-	private ArrayList<Aeronave> empresas;
+	private ArrayList<Aeronave> aeronaves;
 	
 	public GerenciadorAeronaves() {
-		empresas = new ArrayList<>();
+		aeronaves = new ArrayList<>();
 	}
 
 	public void adicionar(Aeronave aer) {
-		empresas.add(aer);
+		aeronaves.add(aer);
 	}
 
 	public Aeronave buscarPorCodigo(String cod) {
-		for (int i = 0; i < empresas.size(); i++) {
-			Aeronave a = empresas.get(i);
+		for (int i = 0; i < aeronaves.size(); i++) {
+			Aeronave a = aeronaves.get(i);
 			if(a.getCodigo().equals(cod))
 				return a;
 		}
@@ -24,6 +25,10 @@ public class GerenciadorAeronaves {
 	}
 
 	public ArrayList<Aeronave> display() {
-		return empresas;
+		return aeronaves;
+	}
+
+	public void ordenaCodigo() {
+		Collections.sort(aeronaves);
 	}
 }
