@@ -5,13 +5,13 @@ import java.util.Collections;
 
 public class GerenciadorAeroportos {
 	private ArrayList<Aeroporto> aeroportos;
-	
+
 	public GerenciadorAeroportos() {
-		aeroportos = new ArrayList<>();
+		this.aeroportos = new ArrayList<Aeroporto>();
 	}
 
-	public void adicionar(Aeroporto aev) {
-		aeroportos.add(aev);
+	public void adicionar(Aeroporto aer) {
+		this.aeroportos.add(aer);
 	}
 
 	public Aeroporto buscarPorCodigo(String cod) {
@@ -24,8 +24,16 @@ public class GerenciadorAeroportos {
 		return null;
 	}
 
-	public ArrayList<Aeroporto> display() {
-		return aeroportos;
+	public ArrayList<Aeroporto> listarTodos() {
+        return aeroportos;
+    }
+
+	public String toString() {
+		String aeros = "\nAeroportos: \n";
+		for(Aeroporto aer : aeroportos) {
+			aeros += aer + "\n";
+		}
+		return aeros;
 	}
 
 	public void ordenaNome() {

@@ -3,7 +3,7 @@ package pucrs.myflight.modelo;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class Voo implements Contavel, Comparable<Voo> {
+public class Voo implements Comparable<Voo> {
 
 	public enum Status {
 		CONFIRMADO, ATRASADO, CANCELADO
@@ -13,7 +13,7 @@ public class Voo implements Contavel, Comparable<Voo> {
 	public Duration duracao;
 	public Rota rota;
 	public Status status;
-	private int totalObjects = 0;
+	private static int totalObjects = 0;
 
 	public Voo(Rota rota, LocalDateTime datahora, Duration duracao) {
 		totalObjects += 1;
@@ -47,8 +47,8 @@ public class Voo implements Contavel, Comparable<Voo> {
 		this.status = novo;
 	}
 
-	public String totalObjects() {
-		return "Total de objetos criados: " + totalObjects;
+	public static int totalObjects() {
+		return totalObjects;
 	}
 
 	public int compareTo(Voo v) {
@@ -61,5 +61,10 @@ public class Voo implements Contavel, Comparable<Voo> {
 		double duracaoEmMinutos = duracaoEmHoras * 60;
 
 		return duracaoEmMinutos;
+	}
+
+	public String toString() {
+		return "\nRota(s): " + rota + "\nHora local: " + datahora
+		+ "\nDuração: " + duracao; 
 	}
 }

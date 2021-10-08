@@ -1,16 +1,12 @@
 package pucrs.myflight.modelo;
 
-interface Contavel {
-	public String totalObjects();
-}
-
-public class CiaAerea implements Contavel, Comparable<CiaAerea> {
+public class CiaAerea implements Comparable<CiaAerea> {
 	private String codigo;
 	private String nome;
-	private int totalObjects = 0;
+	private static int totalObjects = 0;
 	
 	public CiaAerea(String codigo, String nome) {
-		totalObjects += 1;
+		totalObjects++;
 		this.codigo = codigo;
 		this.nome = nome;
 	}
@@ -23,11 +19,15 @@ public class CiaAerea implements Contavel, Comparable<CiaAerea> {
 		return nome;
 	}
 
-	public String totalObjects() {
-		return "Total de objetos criados: " + totalObjects;
+	public static int totalObjects() {
+		return totalObjects;
 	}
 
 	public int compareTo(CiaAerea cia) {
 		return nome.compareTo(cia.getNome());
+	}
+	
+	public String toString() {
+		return "\nCódigo: " + codigo + "\nNome: " + nome;
 	}
 }

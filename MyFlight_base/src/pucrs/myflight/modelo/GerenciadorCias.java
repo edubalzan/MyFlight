@@ -38,6 +38,13 @@ public class GerenciadorCias {
 		return empresas;
 	}
 
+	public String toString() {
+		String cias = "\nCompanhias aéreas: \n";
+		for(CiaAerea cia : empresas)
+			cias += cia + "\n";
+		return cias;
+	}
+
 	public void ordenaNome() {
 		Collections.sort(empresas);
 	}

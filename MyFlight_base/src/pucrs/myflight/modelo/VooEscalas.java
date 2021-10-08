@@ -8,11 +8,13 @@ public class VooEscalas extends Voo {
     ArrayList<Rota> rotas = new ArrayList<Rota>();
 
     private Rota rotaFinal;
+    private static int totalObjects = 0;
 
     // Construtor
     public VooEscalas(Rota rota, Rota rotaFinal, LocalDateTime datahora, Duration duracao) {
         super(rota, datahora, duracao);
         this.rotaFinal = rotaFinal;
+        totalObjects++;
     }
 
     public Rota getRotaFinal() {
@@ -29,6 +31,10 @@ public class VooEscalas extends Voo {
 
     public ArrayList<Rota> getRotas() {
         return rotas;
+    }
+
+    public static int totalObjects() {
+        return totalObjects;
     }
 
     @Override

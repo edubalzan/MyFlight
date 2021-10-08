@@ -8,7 +8,7 @@ public class GerenciadorVoos {
 	private ArrayList<Voo> voos;
 	
 	public GerenciadorVoos() {
-		voos = new ArrayList<>();
+		voos = new ArrayList<Voo>();
 	}
 
 	public void adicionar(Voo v) {
@@ -27,6 +27,13 @@ public class GerenciadorVoos {
 
 	public ArrayList<Voo> display() {
 		return voos;
+	}
+
+	public String toString() {
+		String vs = "\nVoos: \n";
+		for(Voo v : voos)
+			vs += v + "\n";
+		return vs;
 	}
 
 	public void ordenaData() {

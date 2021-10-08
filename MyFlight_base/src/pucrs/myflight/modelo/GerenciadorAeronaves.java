@@ -7,7 +7,7 @@ public class GerenciadorAeronaves {
 	private ArrayList<Aeronave> aeronaves;
 	
 	public GerenciadorAeronaves() {
-		aeronaves = new ArrayList<>();
+		aeronaves = new ArrayList<Aeronave>();
 	}
 
 	public void adicionar(Aeronave aer) {
@@ -26,6 +26,13 @@ public class GerenciadorAeronaves {
 
 	public ArrayList<Aeronave> display() {
 		return aeronaves;
+	}
+
+	public String toString() {
+		String aevs = "\nAeronaves: \n";
+		for(Aeronave aev : aeronaves)
+			aevs += aev + "\n";
+		return aevs;
 	}
 
 	public void ordenaCodigo() {

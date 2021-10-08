@@ -1,6 +1,6 @@
 package pucrs.myflight.modelo;
 
-public class Geo implements Contavel {
+public class Geo {
 	private double latitude;
 	private double longitude;
 	private static double raio = 6371;

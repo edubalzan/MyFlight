@@ -7,7 +7,7 @@ public class GerenciadorRotas {
 	private ArrayList<Rota> rotas;
 	
 	public GerenciadorRotas() {
-		rotas = new ArrayList<>();
+		rotas = new ArrayList<Rota>();
 	}
 
 	public void adicionar(Rota r) {
@@ -40,5 +40,12 @@ public class GerenciadorRotas {
 
 	public void ordenaOrigem() {
 		Collections.sort(rotas);
+	}
+
+	public String toString() {
+		String rs = "\nRotas: \n";
+		for(Rota r : rotas)
+			rs += r + "\n";
+		return rs;
 	}
 }
