@@ -25,7 +25,7 @@ public class App {
 		GerenciadorRotas gr = new GerenciadorRotas();
 		GerenciadorVoos gv = new GerenciadorVoos();
 		
-		// 1º voo com dois tipos de criação de voo
+		// Objetos
 		CiaAerea cia1 = new CiaAerea("AD", "Azul");
 		Aeronave aev1 = new Aeronave("001", "A380");
 		Aeronave aev2 = new Aeronave("002", "A320");
@@ -43,7 +43,7 @@ public class App {
 		// Voo v1b = new Voo(r1);
 		VooEscalas ve1 = new VooEscalas(r1, r2, horaLocal1, duracao);
 
-		//Adicionando aos gerenciadores
+		//Adicionando os objetos aos gerenciadores
 		gcia.adicionar(cia1);
 		gaev.adicionar(aev1);
 		gaev.adicionar(aev2);
@@ -63,13 +63,12 @@ public class App {
 		System.out.println("Total de voos: " + Voo.totalObjects());
 		System.out.println("Total de voos com escala: " + VooEscalas.totalObjects());
 
-		//Todos obejetos
+		//Lista de cada tipo de objeto
 		System.out.println(gaer.toString()); //Aeroportos
 		System.out.println(gcia.toString()); //Companhias aéreas
 		System.out.println(gv.toString()); //Voos
 		System.out.println(gaev.toString()); //Aeronaves
 		System.out.println(gr.toString()); //Rotas
-
 
 		//Distância entre aeroporto Salgado Filho e Guarulhos
 		System.out.printf("\nA distância é de aproximadamente %.2f km\n", Geo.calculaDistancia(g1, g2));
