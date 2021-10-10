@@ -9,10 +9,10 @@ public class Voo implements Comparable<Voo> {
 		CONFIRMADO, ATRASADO, CANCELADO
 	};
 
-	public LocalDateTime datahora;
-	public Duration duracao;
-	public Rota rota;
-	public Status status;
+	private LocalDateTime datahora;
+	private Duration duracao;
+	private Rota rota;
+	private Status status;
 	private static int totalObjects = 0;
 
 	public Voo(Rota rota, LocalDateTime datahora, Duration duracao) {
