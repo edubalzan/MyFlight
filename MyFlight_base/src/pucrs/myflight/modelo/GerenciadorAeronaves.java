@@ -24,10 +24,6 @@ public class GerenciadorAeronaves {
 		return null;
 	}
 
-	public ArrayList<Aeronave> display() {
-		return aeronaves;
-	}
-
 	public String toString() {
 		String aevs = "\nAeronaves: \n";
 		for(Aeronave aev : aeronaves)

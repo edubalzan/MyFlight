@@ -25,10 +25,6 @@ public class GerenciadorVoos {
 		return null;
 	}
 
-	public ArrayList<Voo> display() {
-		return voos;
-	}
-
 	public String toString() {
 		String vs = "\nVoos: \n";
 		for(Voo v : voos)

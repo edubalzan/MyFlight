@@ -5,10 +5,10 @@ public class Geo {
 	private double longitude;
 	private static double raio = 6371;
 	private static double distancia;
-	private int totalObjects = 0;
+	private static int totalObjects = 0;
 	
 	public Geo(double latitude, double longitude) {
-		totalObjects += 1;
+		totalObjects++;
 		this.latitude = latitude;
 		this.longitude = longitude;
 	}
@@ -43,7 +43,7 @@ public class Geo {
 		return distancia;
 	}
 
-	public String totalObjects() {
-		return "Total de objetos criados: " + totalObjects;
+	public static int totalObjects() {
+		return totalObjects;
 	}
 }

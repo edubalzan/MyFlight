@@ -11,8 +11,8 @@ public class VooEscalas extends Voo {
     private static int totalObjects = 0;
 
     // Construtor
-    public VooEscalas(Rota rota, Rota rotaFinal, LocalDateTime datahora, Duration duracao) {
-        super(rota, datahora, duracao);
+    public VooEscalas(Rota rota, Rota rotaFinal, LocalDateTime datahora, Duration duracao, Status status) {
+        super(rota, datahora, duracao, status);
         this.rotaFinal = rotaFinal;
         totalObjects++;
     }
@@ -23,10 +23,6 @@ public class VooEscalas extends Voo {
 
     public void adicionar(Rota r) {
         rotas.add(r);
-    }
-
-    public ArrayList<Rota> getRotas() {
-        return rotas;
     }
 
     public static int totalObjects() {

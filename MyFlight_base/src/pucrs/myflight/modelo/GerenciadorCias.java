@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class GerenciadorCias {
-	private ArrayList<CiaAerea> empresas;
+	private ArrayList<CiaAerea> cias;
 	
 	public GerenciadorCias() {
-		empresas = new ArrayList<CiaAerea>();
+		cias = new ArrayList<CiaAerea>();
 	}
 
 	public void adicionar(CiaAerea cia) {
-		empresas.add(cia);
+		cias.add(cia);
 	}
 
 	public CiaAerea buscarPorCodigo(String cod) {
-		for (int i = 0; i < empresas.size(); i++) {
-			CiaAerea a = empresas.get(i);
+		for (int i = 0; i < cias.size(); i++) {
+			CiaAerea a = cias.get(i);
 			if(a.getCodigo().equals(cod))
 				return a;
 		}
@@ -25,8 +25,8 @@ public class GerenciadorCias {
 	}
 
 	public CiaAerea buscarPorNome(String nome) {
-		for (int i = 0; i < empresas.size(); i++) {
-			CiaAerea a = empresas.get(i);
+		for (int i = 0; i < cias.size(); i++) {
+			CiaAerea a = cias.get(i);
 			if(a.getNome().equalsIgnoreCase(nome))
 				return a;
 		}
@@ -34,18 +34,14 @@ public class GerenciadorCias {
 		return null;
 	}
 
-	public ArrayList<CiaAerea> display() {
-		return empresas;
-	}
-
 	public String toString() {
-		String cias = "\nCompanhias aéreas: \n";
-		for(CiaAerea cia : empresas)
-			cias += cia + "\n";
-		return cias;
+		String cias2 = "\nCompanhias aéreas: \n";
+		for(CiaAerea cia : cias)
+			cias2 += cia + "\n";
+		return cias2;
 	}
 
 	public void ordenaNome() {
-		Collections.sort(empresas);
+		Collections.sort(cias);
 	}
 }

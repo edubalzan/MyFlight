@@ -39,9 +39,9 @@ public class App {
 		Rota r2 = new Rota(cia1, aer2, aer3, aev2);
 		LocalDateTime horaLocal1 = LocalDateTime.of(2016, 8, 12, 12, 0);
 		Duration duracao = Duration.ofMinutes(120);
-		Voo v1a = new Voo(r1, horaLocal1, duracao);
+		Voo v1a = new Voo(r1, horaLocal1, duracao, Voo.Status.CONFIRMADO);
 		// Voo v1b = new Voo(r1);
-		VooEscalas ve1 = new VooEscalas(r1, r2, horaLocal1, duracao);
+		VooEscalas ve1 = new VooEscalas(r1, r2, horaLocal1, duracao, Voo.Status.ATRASADO);
 
 		//Adicionando os objetos aos gerenciadores
 		gcia.adicionar(cia1);
@@ -62,6 +62,7 @@ public class App {
 		System.out.println("Total de rotas: " + Rota.totalObjects());
 		System.out.println("Total de voos: " + Voo.totalObjects());
 		System.out.println("Total de voos com escala: " + VooEscalas.totalObjects());
+		System.out.println("Total de geos (cordenadas): " + Geo.totalObjects());
 
 		//Lista de cada tipo de objeto
 		System.out.println(gaer.toString()); //Aeroportos

@@ -15,7 +15,7 @@ public class Voo implements Comparable<Voo> {
 	private Status status;
 	private static int totalObjects = 0;
 
-	public Voo(Rota rota, LocalDateTime datahora, Duration duracao) {
+	public Voo(Rota rota, LocalDateTime datahora, Duration duracao, Status status) {
 		totalObjects += 1;
 		this.rota = rota;
 		this.datahora = datahora;

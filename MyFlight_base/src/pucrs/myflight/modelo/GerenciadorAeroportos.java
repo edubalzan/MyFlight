@@ -24,10 +24,6 @@ public class GerenciadorAeroportos {
 		return null;
 	}
 
-	public ArrayList<Aeroporto> listarTodos() {
-        return aeroportos;
-    }
-
 	public String toString() {
 		String aeros = "\nAeroportos: \n";
 		for(Aeroporto aer : aeroportos) {
