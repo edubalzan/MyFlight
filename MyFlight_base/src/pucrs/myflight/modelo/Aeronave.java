@@ -1,6 +1,7 @@
 package pucrs.myflight.modelo;
 
 public class Aeronave implements Comparable<Aeronave> {
+	
 	private String codigo;
 	private String descricao;
 	private static int totalObjects = 0;

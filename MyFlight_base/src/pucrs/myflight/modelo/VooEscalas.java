@@ -7,30 +7,33 @@ import java.util.ArrayList;
 public class VooEscalas extends Voo {
     ArrayList<Rota> rotas = new ArrayList<Rota>();
 
-    private Rota rotaFinal;
-    private static int totalObjects = 0;
+    private Rota rotaI;
+    private Rota rotaF;
+    private Duration duracao;
 
     // Construtor
-    public VooEscalas(Rota rota, Rota rotaFinal, LocalDateTime datahora, Duration duracao, Status status) {
-        super(rota, datahora, duracao, status);
-        this.rotaFinal = rotaFinal;
-        totalObjects++;
+    public VooEscalas(Rota rotaI, Rota rotaF, LocalDateTime dh, Duration duracao, Status status) {
+        super(dh);
+        this.rotaI = rotaI;
+        this.rotaF = rotaF;
+        this.duracao = duracao;
     }
 
-    public Rota getRotaFinal() {
-        return rotaFinal;
+    public Duration getDuracao() {
+        return duracao;
     }
 
-    public void adicionar(Rota r) {
-        rotas.add(r);
+    public Rota getRota() {
+        return rotaI;
     }
 
-    public static int totalObjects() {
-        return totalObjects;
+    public void adicionar(Rota rI, Rota rF) {
+        rotas.add(rI);
+        rotas.add(rF);
     }
 
     @Override
     public String toString() {
-        return super.toString() + " -> " + rotaFinal;
+        return "\n" + rotaI + " -> " + rotaF;
     }
 }

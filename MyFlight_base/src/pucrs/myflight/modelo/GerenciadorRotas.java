@@ -35,7 +35,7 @@ public class GerenciadorRotas {
 	}
 
 	public String toString() {
-		String rs = "\norigens: \n";
+		String rs = "\nOrigens: \n";
 		for(Rota r : origens)
 			rs += r + "\n";
 		return rs;

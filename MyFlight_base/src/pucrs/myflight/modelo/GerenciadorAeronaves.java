@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class GerenciadorAeronaves {
 	private ArrayList<Aeronave> aeronaves;
-	
+
 	public GerenciadorAeronaves() {
 		aeronaves = new ArrayList<Aeronave>();
 	}
@@ -17,7 +17,7 @@ public class GerenciadorAeronaves {
 	public Aeronave buscarPorCodigo(String cod) {
 		for (int i = 0; i < aeronaves.size(); i++) {
 			Aeronave a = aeronaves.get(i);
-			if(a.getCodigo().equals(cod))
+			if (a.getCodigo().equals(cod))
 				return a;
 		}
 
@@ -26,7 +26,7 @@ public class GerenciadorAeronaves {
 
 	public String toString() {
 		String aevs = "\nAeronaves: \n";
-		for(Aeronave aev : aeronaves)
+		for (Aeronave aev : aeronaves)
 			aevs += aev + "\n";
 		return aevs;
 	}
