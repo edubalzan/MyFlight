@@ -1,7 +1,6 @@
 package pucrs.myflight.modelo;
 
 public class Rota implements Comparable<Rota> {
-	
 	private CiaAerea cia;
 	private Aeroporto origem;
 	private Aeroporto destino;
@@ -41,7 +40,7 @@ public class Rota implements Comparable<Rota> {
 	}
 
 	public String toString() {
-		return "\nCompanhia aérea: " + cia.toString() + "\n\nOrigem: " + origem.toString()
-		+ "\n\nDestino: " + destino.toString() + "\n\nAeronave: " + aeronave;
+		return "\nCompanhia aérea: " + cia.toString() + "\nOrigem: " + origem.toString() + "\nDestino: "
+		+ destino.toString() + "\nAeronave: " + aeronave + "\n";
 	}
 }

@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class GerenciadorCias {
 	private ArrayList<CiaAerea> cias;
-	
+
 	public GerenciadorCias() {
 		cias = new ArrayList<CiaAerea>();
 	}
@@ -17,7 +17,7 @@ public class GerenciadorCias {
 	public CiaAerea buscarPorCodigo(String cod) {
 		for (int i = 0; i < cias.size(); i++) {
 			CiaAerea a = cias.get(i);
-			if(a.getCodigo().equals(cod))
+			if (a.getCodigo().equals(cod))
 				return a;
 		}
 
@@ -27,7 +27,7 @@ public class GerenciadorCias {
 	public CiaAerea buscarPorNome(String nome) {
 		for (int i = 0; i < cias.size(); i++) {
 			CiaAerea a = cias.get(i);
-			if(a.getNome().equalsIgnoreCase(nome))
+			if (a.getNome().equalsIgnoreCase(nome))
 				return a;
 		}
 
@@ -35,10 +35,9 @@ public class GerenciadorCias {
 	}
 
 	public String toString() {
-		String cias2 = "\nCompanhias aéreas: \n";
-		for(CiaAerea cia : cias)
-			cias2 += cia + "\n";
-		return cias2;
+		for (CiaAerea cias : cias)
+			return "Companhias aéreas: " + cias;
+		return null;
 	}
 
 	public void ordenaNome() {

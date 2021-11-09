@@ -9,22 +9,32 @@ public class VooEscalas extends Voo {
 
     private Rota rotaI;
     private Rota rotaF;
-    private Duration duracao;
+    private Duration duracaoRotaI;
+    private Duration duracaoRotaF;
 
     // Construtor
-    public VooEscalas(Rota rotaI, Rota rotaF, LocalDateTime dh, Duration duracao, Status status) {
-        super(dh);
+    public VooEscalas(Rota rotaI, Rota rotaF, LocalDateTime dh, Duration duracaoRotaI, Duration duracaoRotaF, Status status) {
+        super(dh, status);
         this.rotaI = rotaI;
         this.rotaF = rotaF;
-        this.duracao = duracao;
+        this.duracaoRotaI = duracaoRotaI;
+        this.duracaoRotaF = duracaoRotaF;
     }
 
-    public Duration getDuracao() {
-        return duracao;
-    }
-
-    public Rota getRota() {
+    public Rota getRotaI() {
         return rotaI;
+    }
+
+    public Rota getRotaF() {
+        return rotaF;
+    }
+
+    public Duration getDuracaoRotaI() {
+        return duracaoRotaI;
+    }
+
+    public Duration getDuracaoRotaF() {
+        return duracaoRotaF;
     }
 
     public void adicionar(Rota rI, Rota rF) {
@@ -34,6 +44,8 @@ public class VooEscalas extends Voo {
 
     @Override
     public String toString() {
-        return "\n" + rotaI + " -> " + rotaF;
+        return "\nVoo com escala: " + "\nStatus: " + getStatus() + "\nData: " + getDatahora()
+        + "\nDuração das rota: " + getDuracaoRotaI() + "-->" + getDuracaoRotaF()
+        + "\nRotas: " + getRotaI() + "-->" + getRotaF();
     }
 }

@@ -28,6 +28,6 @@ public class CiaAerea implements Comparable<CiaAerea> {
 	}
 
 	public String toString() {
-		return "\nCódigo: " + codigo + "\nNome: " + nome;
+		return "\nCódigo: " + codigo + "\nNome: " + nome + "\n";
 	}
 }

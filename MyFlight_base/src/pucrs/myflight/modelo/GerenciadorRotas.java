@@ -4,30 +4,30 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class GerenciadorRotas {
-	private ArrayList<Rota> origens;
-	
+	private ArrayList<Rota> rotas;
+
 	public GerenciadorRotas() {
-		origens = new ArrayList<Rota>();
+		rotas = new ArrayList<Rota>();
 	}
 
 	public void adicionar(Rota r) {
-		origens.add(r);
+		rotas.add(r);
 	}
 
 	public Rota buscarPorOrigem(Aeroporto orig) {
-		for (int i = 0; i < origens.size(); i++) {
-			Rota a = origens.get(i);
-			if(a.getOrigem().equals(orig))
+		for (int i = 0; i < rotas.size(); i++) {
+			Rota a = rotas.get(i);
+			if (a.getOrigem().equals(orig))
 				return a;
 		}
 
 		return null;
 	}
 
-    public Rota buscarPorDestino(Aeroporto dest) {
-		for (int i = 0; i < origens.size(); i++) {
-			Rota a = origens.get(i);
-			if(a.getDestino().equals(dest))
+	public Rota buscarPorDestino(Aeroporto dest) {
+		for (int i = 0; i < rotas.size(); i++) {
+			Rota a = rotas.get(i);
+			if (a.getDestino().equals(dest))
 				return a;
 		}
 
@@ -35,13 +35,12 @@ public class GerenciadorRotas {
 	}
 
 	public String toString() {
-		String rs = "\nOrigens: \n";
-		for(Rota r : origens)
-			rs += r + "\n";
-		return rs;
+		for (Rota r : rotas)
+			return "Rotas: " + r;
+		return null;
 	}
 
 	public void ordenaOrigem() {
-		Collections.sort(origens);
+		Collections.sort(rotas);
 	}
 }

@@ -6,7 +6,7 @@ import java.util.Collections;
 
 public class GerenciadorVoos {
 	private ArrayList<Voo> voos;
-	
+
 	public GerenciadorVoos() {
 		voos = new ArrayList<Voo>();
 	}
@@ -18,7 +18,7 @@ public class GerenciadorVoos {
 	public Voo buscarPorData(LocalDateTime datahora) {
 		for (int i = 0; i < voos.size(); i++) {
 			Voo a = voos.get(i);
-			if(a.getDatahora().equals(datahora))
+			if (a.getDatahora().equals(datahora))
 				return a;
 		}
 
@@ -26,10 +26,9 @@ public class GerenciadorVoos {
 	}
 
 	public String toString() {
-		String vs = "\nVoos: \n";
-		for(Voo v : voos)
-			vs += v + "\n";
-		return vs;
+		for (Voo v : voos)
+			return "Voos: " + v;
+		return null;
 	}
 
 	public void ordenaData() {

@@ -29,8 +29,8 @@ public class App {
 
 		// Objetos
 		CiaAerea cia1 = new CiaAerea("AD", "Azul");
-		Aeronave aev1 = new Aeronave("001", "A380");
-		Aeronave aev2 = new Aeronave("002", "A320");
+		Aeronave aev1 = new Aeronave("001", "A380", 250);
+		Aeronave aev2 = new Aeronave("002", "A320", 130);
 		Geo g1 = new Geo(-29.993528934213817, -51.175284542239574); //Salgado Filho
 		Geo g2 = new Geo(-23.43049433141058, -46.473075188409055); //Guarulhos
 		Geo g3 = new Geo(-22.91095601861328, -43.16448926380469); //Santos Dumont
@@ -40,9 +40,10 @@ public class App {
 		Rota r1 = new Rota(cia1, aer1, aer2, aev2);
 		Rota r2 = new Rota(cia1, aer2, aer3, aev1);
 		LocalDateTime dh1 = LocalDateTime.of(2016, 8, 12, 12, 0);
-		Duration duracao = Duration.ofMinutes(120);
-		VooDireto vd1 = new VooDireto(r1, dh1, duracao, Status.CONFIRMADO);
-		VooEscalas ve1 = new VooEscalas(r1, r2, dh1, duracao, Status.CONFIRMADO);
+		Duration duracao1 = Duration.ofMinutes(120);
+		Duration duracao2 = Duration.ofMinutes(100);
+		VooDireto vd1 = new VooDireto(r1, dh1, duracao1, Status.CONFIRMADO);
+		VooEscalas ve1 = new VooEscalas(r1, r2, dh1, duracao1, duracao2, Status.CONFIRMADO);
 
 		// Adicionando os objetos aos gerenciadores
 		gcia.adicionar(cia1);
@@ -64,6 +65,8 @@ public class App {
 		System.out.println("Total de voos: " + Voo.totalObjects());
 		System.out.println("Total de voos com escala: " + VooEscalas.totalObjects());
 		System.out.println("Total de geos (cordenadas): " + Geo.totalObjects());
+
+		System.out.println("\n");
 
 		// Lista de cada tipo de objeto
 		System.out.println(gaer.toString()); // Aeroportos

@@ -1,7 +1,6 @@
 package pucrs.myflight.modelo;
 
 public class Aeroporto implements Comparable<Aeroporto> {
-	
 	private String codigo;
 	private String nome;
 	private Geo loc;
@@ -37,6 +36,6 @@ public class Aeroporto implements Comparable<Aeroporto> {
 	public String toString() {
 		return "\nCódigo: " + codigo + "\nNome: " + nome
 		+ "\nLatidude: " + loc.getLatitude()
-		+ "\nLongitude: " + loc.getLongitude();
+		+ "\nLongitude: " + loc.getLongitude() + "\n";
 	}
 }
