@@ -32,9 +32,9 @@ public class Geo {
 		Math.toRadians(g2.getLongitude());
 
 		distancia = 2 * raio
-				* Math.asin(Math.sqrt(Math.pow(Math.sin((g1.getLatitude() - g2.getLatitude()) / 2), 2)
-						+ (Math.pow(Math.sin((g1.getLongitude() - g2.getLongitude()) / 2), 2)
-								* (Math.cos(g1.getLatitude())) * (Math.cos(g2.getLatitude())))));
+		* Math.asin(Math.sqrt(Math.pow(Math.sin((g1.getLatitude() - g2.getLatitude()) / 2), 2)
+		+ (Math.pow(Math.sin((g1.getLongitude() - g2.getLongitude()) / 2), 2)
+		* (Math.cos(g1.getLatitude())) * (Math.cos(g2.getLatitude())))));
 
 		return distancia;
 	}

@@ -39,9 +39,8 @@ public class VooEscalas extends Voo {
         return duracaoRotaF;
     }
 
-    public void adicionar(Rota rI, Rota rF) {
-        rotas.add(rI);
-        rotas.add(rF);
+    public void adicionar(Rota r) {
+        rotas.add(r);
     }
 
     public static int totalObjects() {
