@@ -30,14 +30,14 @@ public class GerenciadorRotas {
 			if (a.getDestino().equals(dest))
 				return a;
 		}
-
 		return null;
 	}
 
 	public String toString() {
+		String gr = "Rotas: ";
 		for (Rota r : rotas)
-			return "Rotas: " + r;
-		return null;
+			gr += r;
+		return gr;
 	}
 
 	public void ordenaOrigem() {

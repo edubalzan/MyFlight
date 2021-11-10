@@ -15,19 +15,18 @@ public class GerenciadorAeroportos {
 	}
 
 	public Aeroporto buscarPorCodigo(String cod) {
-		for (int i = 0; i < aeroportos.size(); i++) {
-			Aeroporto a = aeroportos.get(i);
-			if (a.getCodigo().equals(cod))
-				return a;
+		for (Aeroporto aer : aeroportos) {
+			if (aer.getCodigo().equals(cod))
+				return aer;
 		}
-
 		return null;
 	}
 
 	public String toString() {
+		String gaer = "Aeroportos: ";
 		for (Aeroporto aer : aeroportos)
-			return "Aeroportos: " + aer;
-		return null;
+			gaer += aer;
+		return gaer;
 	}
 
 	public void ordenaNome() {

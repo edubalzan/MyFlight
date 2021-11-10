@@ -70,9 +70,9 @@ public class App {
 
 		// Lista de cada tipo de objeto
 		System.out.println(gaer.toString()); // Aeroportos
+		System.out.println(gaev.toString()); // Aeronaves
 		System.out.println(gcia.toString()); // Companhias aéreas
 		System.out.println(gv.toString()); // Voos
-		System.out.println(gaev.toString()); // Aeronaves
 		System.out.println(gr.toString()); // Rotas
 
 		// Distância entre aeroporto Salgado Filho e Guarulhos

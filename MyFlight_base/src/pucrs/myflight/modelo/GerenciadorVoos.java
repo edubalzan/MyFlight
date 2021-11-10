@@ -16,19 +16,18 @@ public class GerenciadorVoos {
 	}
 
 	public Voo buscarPorData(LocalDateTime datahora) {
-		for (int i = 0; i < voos.size(); i++) {
-			Voo a = voos.get(i);
-			if (a.getDatahora().equals(datahora))
-				return a;
+		for (Voo v : voos) {
+			if (v.getDatahora().equals(datahora))
+				return v;
 		}
-
 		return null;
 	}
 
 	public String toString() {
+		String gv = "Voos: ";
 		for (Voo v : voos)
-			return "Voos: " + v;
-		return null;
+			gv += v;
+		return gv;
 	}
 
 	public void ordenaData() {

@@ -25,19 +25,18 @@ public class GerenciadorCias {
 	}
 
 	public CiaAerea buscarPorNome(String nome) {
-		for (int i = 0; i < cias.size(); i++) {
-			CiaAerea a = cias.get(i);
-			if (a.getNome().equalsIgnoreCase(nome))
-				return a;
+		for (CiaAerea cia : cias) {
+			if (cia.getCodigo().equals(nome))
+				return cia;
 		}
-
 		return null;
 	}
 
 	public String toString() {
-		for (CiaAerea cias : cias)
-			return "Companhias aéreas: " + cias;
-		return null;
+		String gcia = "Companhias aéreas: ";
+		for (CiaAerea cia : cias)
+			gcia += cia;
+		return gcia;
 	}
 
 	public void ordenaNome() {

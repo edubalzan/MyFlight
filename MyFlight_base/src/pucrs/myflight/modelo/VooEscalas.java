@@ -52,6 +52,6 @@ public class VooEscalas extends Voo {
     public String toString() {
         return "\nVoo com escala: " + "\nStatus: " + getStatus() + "\nData: " + getDatahora()
         + "\nDuração das rota: " + getDuracaoRotaI() + "-->" + getDuracaoRotaF()
-        + "\nRotas: " + getRotaI() + "-->" + getRotaF();
+        + "\nRotas: " + getRotaI() + "-->\n" + getRotaF();
     }
 }

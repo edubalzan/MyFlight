@@ -23,9 +23,10 @@ public class GerenciadorAeronaves {
 	}
 
 	public String toString() {
+		String gaev = "Aeronaves: ";
 		for (Aeronave aev : aeronaves)
-			return "Aeronaves: " + aev;
-		return null;
+			gaev += aev;
+		return gaev;
 	}
 
 	public void ordenaCodigo() {
