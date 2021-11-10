@@ -62,7 +62,7 @@ public class App {
 		System.out.println("Total de aeronaves: " + Aeronave.totalObjects());
 		System.out.println("Total de companhias aéreas: " + CiaAerea.totalObjects());
 		System.out.println("Total de rotas: " + Rota.totalObjects());
-		System.out.println("Total de voos: " + Voo.totalObjects());
+		System.out.println("Total de voos diretos: " + VooDireto.totalObjects());
 		System.out.println("Total de voos com escala: " + VooEscalas.totalObjects());
 		System.out.println("Total de geos (cordenadas): " + Geo.totalObjects());
 

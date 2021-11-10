@@ -11,6 +11,7 @@ public class VooEscalas extends Voo {
     private Rota rotaF;
     private Duration duracaoRotaI;
     private Duration duracaoRotaF;
+    private static int totalObjects = 0;
 
     // Construtor
     public VooEscalas(Rota rotaI, Rota rotaF, LocalDateTime dh, Duration duracaoRotaI, Duration duracaoRotaF, Status status) {
@@ -19,6 +20,7 @@ public class VooEscalas extends Voo {
         this.rotaF = rotaF;
         this.duracaoRotaI = duracaoRotaI;
         this.duracaoRotaF = duracaoRotaF;
+        totalObjects++;
     }
 
     public Rota getRotaI() {
@@ -40,6 +42,10 @@ public class VooEscalas extends Voo {
     public void adicionar(Rota rI, Rota rF) {
         rotas.add(rI);
         rotas.add(rF);
+    }
+
+    public static int totalObjects() {
+        return totalObjects;
     }
 
     @Override
