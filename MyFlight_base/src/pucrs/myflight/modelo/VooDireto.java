@@ -20,6 +20,10 @@ public class VooDireto extends Voo {
         return rota;
     }
 
+    public Rota getRotaF() {
+        return null;
+    }
+
     public Duration getDuracaoRotaI() {
         return duracao;
     }
