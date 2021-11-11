@@ -12,7 +12,7 @@ public class App {
 		GerenciadorCias gcia = GerenciadorCias.getInstance();
 		GerenciadorAeronaves gaev = GerenciadorAeronaves.getInstance();
 		GerenciadorAeroportos gaer = GerenciadorAeroportos.getInstance();
-		GerenciadorRotas gr = new GerenciadorRotas();
+		GerenciadorRotas gr = GerenciadorRotas.getInstance();
 		GerenciadorVoos gv = new GerenciadorVoos();
 
 		// Objetos
@@ -35,7 +35,8 @@ public class App {
 		Duration duracao2 = Duration.ofMinutes(100);
 		VooDireto vd1 = new VooDireto(r1, dh1, duracao1, Status.CONFIRMADO);
 		VooDireto vd2 = new VooDireto(r3, dh1, duracao1, Status.CONFIRMADO);
-		VooEscalas ve1 = new VooEscalas(r1, r3, dh1, duracao1, duracao2, Status.CONFIRMADO);
+		VooEscalas ve1 = new VooEscalas(r1, dh1, duracao1, Status.CONFIRMADO);
+		ve1.adicionarRota(r3);
 
 		// Adicionando os objetos aos gerenciadores
 		gcia.adicionar(cia1);
@@ -54,7 +55,7 @@ public class App {
 		gcia.readFile("airlines.dat");
 		gaer.readFile("airports.dat");
 		gaev.readFile("equipment.dat");
-		// gr.readFile("routes.dat");
+		gr.readFile(gcia, gaer, gaev);
 		
 		// Total de cada objeto
 		System.out.println("Total de aeroportos: " + Aeroporto.totalObjects());
@@ -77,18 +78,17 @@ public class App {
 		System.out.println(gaev.toString()); // Aeronaves
 		System.out.println(gcia.toString()); // Companhias aéreas
 		System.out.println(gv.toString()); // Voos
-		System.out.println(gr.toString()); // Rotas
 
 		// Métodos de busca dos objetos criados
 		System.out.println(gaer.buscarPorCodigo("123"));
 		System.out.println(gaev.buscarPorCodigo("001"));
 		System.out.println(gv.buscarPorData(LocalDateTime.of(2016, 8, 12, 12, 0)));
-		System.out.println(gcia.buscarPorCodigo("G"));
-		System.out.println(gcia.buscarPorNome("Azul"));
+		System.out.println(gcia.buscarPorCodigo("ZM"));
+		System.out.println(gcia.buscarPorNome("ExecAir"));
 
 		// Distância entre aeroporto Salgado Filho e Guarulhos
 		System.out.printf("\nA distância é de aproximadamente %.2f km\n", Geo.calculaDistancia(g1, g2));
 		// Duração do voo de Salgado Filho a Guarulhos
-		System.out.printf("Duração do voo: %.2f minutos\n", Voo.calculaDuracao(g1, g2));
+		System.out.printf("Duração do voo: %.2f minutos\n", vd1.calculaDuracao());
 	}
 }

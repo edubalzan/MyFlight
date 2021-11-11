@@ -16,20 +16,12 @@ public class VooDireto extends Voo {
         totalObjects++;
     }
 
-    public Rota getRotaI() {
+    public Rota getRota() {
         return rota;
     }
 
-    public Rota getRotaF() {
-        return null;
-    }
-
-    public Duration getDuracaoRotaI() {
+    public Duration getDuracao() {
         return duracao;
-    }
-
-    public Duration getDuracaoRotaF() {
-        return null;
     }
 
     public static int totalObjects() {
@@ -39,6 +31,17 @@ public class VooDireto extends Voo {
     @Override
     public String toString() {
         return "\nVoo direto: " + "\nStatus: " + getStatus() + "\nData: " + getDatahora()
-        + "\nDuração: " + getDuracaoRotaI() + "\nRota: " + getRotaI();
+        + "\nDuração: " + getDuracao() + "\nRota: " + getRota();
     }
+
+    @Override
+    public double calculaDuracao() {
+        Geo g1 = rota.getOrigem().getLocal();
+        Geo g2 = rota.getDestino().getLocal();
+		double speed = 805;
+		double duracaoEmHoras = ((Geo.calculaDistancia(g1, g2)) / speed) + 0.5; // 30 minutos a mais para decolagem e aterrissagem
+		double duracaoEmMinutos = duracaoEmHoras * 60;
+
+		return duracaoEmMinutos;
+	}
 }

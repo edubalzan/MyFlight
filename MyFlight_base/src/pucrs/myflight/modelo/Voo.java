@@ -17,10 +17,8 @@ public abstract class Voo implements Comparable<Voo> {
 		this.status = status;
 	}
 
-	public abstract Rota getRotaI();
-	public abstract Rota getRotaF();
-	public abstract Duration getDuracaoRotaI();
-	public abstract Duration getDuracaoRotaF();
+	public abstract Rota getRota();
+	public abstract Duration getDuracao();
 
 	public Status getStatus() {
 		return status;
@@ -38,11 +36,5 @@ public abstract class Voo implements Comparable<Voo> {
 		return dh.compareTo(v.getDatahora());
 	}
 
-	public static double calculaDuracao(Geo g1, Geo g2) {
-		double speed = 805;
-		double duracaoEmHoras = ((Geo.calculaDistancia(g1, g2)) / speed) + 0.5; // 30 minutos a mais para decolagem e aterrissagem
-		double duracaoEmMinutos = duracaoEmHoras * 60;
-
-		return duracaoEmMinutos;
-	}
+	public abstract double calculaDuracao();
 }

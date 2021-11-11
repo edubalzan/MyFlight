@@ -39,7 +39,7 @@ public class GerenciadorCias {
 
 	public CiaAerea buscarPorNome(String nome) {
 		for (CiaAerea cia : cias) {
-			if (cia.getCodigo().equals(nome))
+			if (cia.getNome().equals(nome))
 				return cia;
 		}
 		return null;

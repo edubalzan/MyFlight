@@ -7,39 +7,27 @@ import java.util.ArrayList;
 public class VooEscalas extends Voo {
     ArrayList<Rota> rotas = new ArrayList<Rota>();
 
-    private Rota rotaI;
-    private Rota rotaF;
-    private Duration duracaoRotaI;
-    private Duration duracaoRotaF;
+    private Rota rota;
+    private Duration duracao;
     private static int totalObjects = 0;
 
     // Construtor
-    public VooEscalas(Rota rotaI, Rota rotaF, LocalDateTime dh, Duration duracaoRotaI, Duration duracaoRotaF, Status status) {
+    public VooEscalas(Rota rota, LocalDateTime dh, Duration duracao, Status status) {
         super(dh, status);
-        this.rotaI = rotaI;
-        this.rotaF = rotaF;
-        this.duracaoRotaI = duracaoRotaI;
-        this.duracaoRotaF = duracaoRotaF;
+        this.rota = rota;
+        this.duracao = duracao;
         totalObjects++;
     }
 
-    public Rota getRotaI() {
-        return rotaI;
+    public Rota getRota() {
+        return rota;
     }
 
-    public Rota getRotaF() {
-        return rotaF;
+    public Duration getDuracao() {
+        return duracao;
     }
 
-    public Duration getDuracaoRotaI() {
-        return duracaoRotaI;
-    }
-
-    public Duration getDuracaoRotaF() {
-        return duracaoRotaF;
-    }
-
-    public void adicionar(Rota r) {
+    public void adicionarRota(Rota r) {
         rotas.add(r);
     }
 
@@ -48,9 +36,28 @@ public class VooEscalas extends Voo {
     }
 
     @Override
+    public double calculaDuracao() {
+        double duracaoEmMinutos = 0;
+        for(Rota r : rotas) {
+            Geo g1 = r.getOrigem().getLocal();
+            Geo g2 = r.getDestino().getLocal();
+            double speed = 805;
+            double duracaoEmHoras = ((Geo.calculaDistancia(g1, g2)) / speed) + 0.5; // 30 minutos a mais para decolagem e aterrissagem
+            duracaoEmMinutos = duracaoEmHoras * 60;
+        }
+
+        return duracaoEmMinutos;
+	}
+
+    @Override
     public String toString() {
+        String rota = "Rotas: ";
+        for(Rota r : rotas) {
+            rota += r;
+            return rota;
+        }
         return "\nVoo com escala: " + "\nStatus: " + getStatus() + "\nData: " + getDatahora()
-        + "\nDuração das rota: " + getDuracaoRotaI() + "-->" + getDuracaoRotaF()
-        + "\nRotas: " + getRotaI() + "-->\n" + getRotaF();
+        + "\nDuração das rota: " + getDuracao()
+        + "\nRotas: " + getRota();
     }
 }
