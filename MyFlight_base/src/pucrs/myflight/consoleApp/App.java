@@ -9,9 +9,9 @@ import java.time.Duration;
 public class App {
 	public static void main(String[] args) {
 		// Gerenciadores
-		GerenciadorCias gcia = new GerenciadorCias();
-		GerenciadorAeronaves gaev = new GerenciadorAeronaves();
-		GerenciadorAeroportos gaer = new GerenciadorAeroportos();
+		GerenciadorCias gcia = GerenciadorCias.getInstance();
+		GerenciadorAeronaves gaev = GerenciadorAeronaves.getInstance();
+		GerenciadorAeroportos gaer = GerenciadorAeroportos.getInstance();
 		GerenciadorRotas gr = new GerenciadorRotas();
 		GerenciadorVoos gv = new GerenciadorVoos();
 
@@ -19,11 +19,11 @@ public class App {
 		CiaAerea cia1 = new CiaAerea("AD", "Azul");
 		CiaAerea cia2 = new CiaAerea("G", "Gol");
 		Aeronave aev1 = new Aeronave("001", "A380", 300);
-		Aeronave aev2 = new Aeronave("002", "A320", 130);
-		Aeronave aev3 = new Aeronave("003", "A360", 200);
-		Geo g1 = new Geo(-30, -51); //Salgado Filho
-		Geo g2 = new Geo(-23, -46); //Guarulhos
-		Geo g3 = new Geo(-23, -43); //Santos Dumont
+		Aeronave aev2 = new Aeronave("003", "A320", 130);
+		Aeronave aev3 = new Aeronave("002", "A360", 200);
+		Geo g1 = new Geo(-30, -51); // Salgado Filho
+		Geo g2 = new Geo(-23, -46); // Guarulhos
+		Geo g3 = new Geo(-23, -43); // Santos Dumont
 		Aeroporto aer1 = new Aeroporto("123", "Salgado Filho", g1);
 		Aeroporto aer2 = new Aeroporto("456", "Guarulhos", g2);
 		Aeroporto aer3 = new Aeroporto("789", "Santos Dumount", g3);
@@ -51,6 +51,11 @@ public class App {
 		gv.adicionar(vd2);
 		gv.adicionar(ve1);
 
+		gcia.readFile("airlines.dat");
+		gaer.readFile("airports.dat");
+		gaev.readFile("equipment.dat");
+		// gr.readFile("routes.dat");
+		
 		// Total de cada objeto
 		System.out.println("Total de aeroportos: " + Aeroporto.totalObjects());
 		System.out.println("Total de aeronaves: " + Aeronave.totalObjects());
@@ -60,7 +65,12 @@ public class App {
 		System.out.println("Total de voos com escala: " + VooEscalas.totalObjects());
 		System.out.println("Total de geos (cordenadas): " + Geo.totalObjects());
 
-		System.out.println("\n");
+		// Métodos de ordenação
+		gv.ordenaData();
+		gaev.ordenaCodigo();
+		gcia.ordenaNome();
+		gr.ordenaOrigem();
+		gaer.ordenaNome();
 
 		// Lista de cada tipo de objeto
 		System.out.println(gaer.toString()); // Aeroportos
@@ -69,9 +79,16 @@ public class App {
 		System.out.println(gv.toString()); // Voos
 		System.out.println(gr.toString()); // Rotas
 
+		// Métodos de busca dos objetos criados
+		System.out.println(gaer.buscarPorCodigo("123"));
+		System.out.println(gaev.buscarPorCodigo("001"));
+		System.out.println(gv.buscarPorData(LocalDateTime.of(2016, 8, 12, 12, 0)));
+		System.out.println(gcia.buscarPorCodigo("G"));
+		System.out.println(gcia.buscarPorNome("Azul"));
+
 		// Distância entre aeroporto Salgado Filho e Guarulhos
 		System.out.printf("\nA distância é de aproximadamente %.2f km\n", Geo.calculaDistancia(g1, g2));
 		// Duração do voo de Salgado Filho a Guarulhos
-		System.out.printf("Duração do voo: %.2f minutos", Voo.calculaDuracao(g1, g2));
+		System.out.printf("Duração do voo: %.2f minutos\n", Voo.calculaDuracao(g1, g2));
 	}
 }
