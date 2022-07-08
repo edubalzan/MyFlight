@@ -1,13 +1,11 @@
-package pucrs.myflight.modelo;
+package objetos;
 
-public class Aeroporto implements Comparable<Aeroporto> {
+public class Aeroporto {
 	private String codigo;
 	private String nome;
 	private Geo loc;
-	private static int totalObjects = 0;
 
 	public Aeroporto(String codigo, String nome, Geo loc) {
-		totalObjects++;
 		this.codigo = codigo;
 		this.nome = nome;
 		this.loc = loc;
@@ -25,17 +23,9 @@ public class Aeroporto implements Comparable<Aeroporto> {
 		return loc;
 	}
 
-	public static int totalObjects() {
-		return totalObjects;
-	}
-
-	public int compareTo(Aeroporto aer) {
-		return nome.compareTo(aer.getNome());
-	}
-
 	public String toString() {
 		return "\nCódigo: " + codigo + "\nNome: " + nome
-		+ "\nLatidude: " + loc.getLatitude()
-		+ "\nLongitude: " + loc.getLongitude() + "\n";
+				+ "\nLatidude: " + loc.getLatitude()
+				+ "\nLongitude: " + loc.getLongitude() + "\n";
 	}
 }

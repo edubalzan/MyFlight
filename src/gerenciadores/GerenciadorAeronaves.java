@@ -1,4 +1,4 @@
-package pucrs.myflight.modelo;
+package gerenciadores;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +7,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Collections;
+
+import objetos.Aeronave;
 
 public class GerenciadorAeronaves {
 	private ArrayList<Aeronave> aeronaves;
@@ -19,11 +20,11 @@ public class GerenciadorAeronaves {
 	}
 
 	public static GerenciadorAeronaves getInstance() {
-        if (gaev == null) {
-           	gaev = new GerenciadorAeronaves();
-        }
-        return gaev;
-    }
+		if (gaev == null) {
+			gaev = new GerenciadorAeronaves();
+		}
+		return gaev;
+	}
 
 	public void adicionar(Aeronave aev) {
 		aeronaves.add(aev);
@@ -31,7 +32,7 @@ public class GerenciadorAeronaves {
 
 	public Aeronave buscarPorCodigo(String cod) {
 		for (Aeronave aev : aeronaves) {
-			if (aev.getCodigo().equals(cod))
+			if (aev.getCodigo().contains(cod))
 				return aev;
 		}
 		return null;
@@ -44,27 +45,22 @@ public class GerenciadorAeronaves {
 		return gaev;
 	}
 
-	public void ordenaCodigo() {
-		Collections.sort(aeronaves);
-	}
-
 	public boolean readFile(String nomeArq) {
-        Path path1 = Paths.get(nomeArq);
-        try (BufferedReader reader = Files.newBufferedReader(path1, Charset.forName("utf8"))) {
-            String line = null;
+		Path path1 = Paths.get(nomeArq);
+		try (BufferedReader reader = Files.newBufferedReader(path1, Charset.forName("utf8"))) {
+			String line = null;
 			line = reader.readLine();
-            while ((line = reader.readLine()) != null) {
-                String[] dados = line.split(";");
-                String cod = dados[0];
+			while ((line = reader.readLine()) != null) {
+				String[] dados = line.split(";");
+				String cod = dados[0];
 				String descricao = dados[1];
 				int capacidade = Integer.parseInt(dados[2]);
-                Aeronave aev = new Aeronave(cod, descricao, capacidade);
-                gaev.adicionar(aev);
-            }
-        }
-        catch (IOException x) {
-            System.err.format("Erro de E/S: %s%n", x);
-        }
-        return true;
-    }
+				Aeronave aev = new Aeronave(cod, descricao, capacidade);
+				gaev.adicionar(aev);
+			}
+		} catch (IOException x) {
+			System.err.format("Erro de E/S: %s%n", x);
+		}
+		return true;
+	}
 }

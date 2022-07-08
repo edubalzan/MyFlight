@@ -1,4 +1,4 @@
-package pucrs.myflight.modelo;
+package gerenciadores;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +7,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Collections;
+
+import objetos.CiaAerea;
 
 public class GerenciadorCias {
 	private ArrayList<CiaAerea> cias;
@@ -19,11 +20,11 @@ public class GerenciadorCias {
 	}
 
 	public static GerenciadorCias getInstance() {
-        if (gcia == null) {
-           	gcia = new GerenciadorCias();
-        }
-        return gcia;
-    }
+		if (gcia == null) {
+			gcia = new GerenciadorCias();
+		}
+		return gcia;
+	}
 
 	public void adicionar(CiaAerea cia) {
 		cias.add(cia);
@@ -39,7 +40,7 @@ public class GerenciadorCias {
 
 	public CiaAerea buscarPorNome(String nome) {
 		for (CiaAerea cia : cias) {
-			if (cia.getNome().equals(nome))
+			if (cia.getNome().contains(nome))
 				return cia;
 		}
 		return null;
@@ -52,26 +53,21 @@ public class GerenciadorCias {
 		return gcia;
 	}
 
-	public void ordenaNome() {
-		Collections.sort(cias);
-	}
-
 	public boolean readFile(String nomeArq) {
-        Path path1 = Paths.get(nomeArq);
-        try (BufferedReader reader = Files.newBufferedReader(path1, Charset.forName("utf8"))) {
-            String line = null;
+		Path path1 = Paths.get(nomeArq);
+		try (BufferedReader reader = Files.newBufferedReader(path1, Charset.forName("utf8"))) {
+			String line = null;
 			line = reader.readLine();
-            while ((line = reader.readLine()) != null) {
-                String[] dados = line.split(";");
-                String cod = dados[0];
+			while ((line = reader.readLine()) != null) {
+				String[] dados = line.split(";");
+				String cod = dados[0];
 				String nome = dados[1];
-                CiaAerea cia = new CiaAerea(cod, nome);
-                gcia.adicionar(cia);
-            }
-        }
-        catch (IOException x) {
-            System.err.format("Erro de E/S: %s%n", x);
-        }
-        return true;
-    }
+				CiaAerea cia = new CiaAerea(cod, nome);
+				gcia.adicionar(cia);
+			}
+		} catch (IOException x) {
+			System.err.format("Erro de E/S: %s%n", x);
+		}
+		return true;
+	}
 }
